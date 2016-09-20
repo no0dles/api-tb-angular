@@ -49,7 +49,13 @@ export class AppComponent {
       console.log(data);
     });
 
-    api.emit(action);
+    api
+      .emit(action)
+      .on(TestResponseEvent)
+      .subscribe(res => {
+        console.log(res);
+      });
+    
   }
 }
 ```
